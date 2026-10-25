@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Analysis Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: white;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 620px;
+            margin: 40px auto;
+            padding: 30px 15px;
+            background: {{ bg_color }};
+            border-bottom: 2px solid #222;
+        }
+
+        .card {
+            background: white;
+            padding: 25px 18px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #0001;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .review {
+            font-size: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        .decision {
+            margin-top: 24px;
+            font-size: 20px;
+            font-weight: bold;
+            color: {{ text_color }};
+        }
+
+        .details {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 12px;
+            color: #b000b5;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Review Analysis Result</h2>
+
+            <p class="review">
+                <strong>Review:</strong>
+                {{ review }}
+            </p>
+
+            <p class="decision">
+                Decision: {{ decision }} {{ emoji }}
+            </p>
+
+            <p class="details">
+                Rating: {{ rating }} / 5 ⭐
+            </p>
+
+            <p class="details">
+                Score: {{ "%.4f"|format(score) }}
+            </p>
+
+            <a href="/">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
