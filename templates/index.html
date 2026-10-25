@@ -1,1 +1,111 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review Sentiment Analysis</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: white;
+            text-align: center;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 620px;
+            margin: 40px auto;
+            padding: 30px 15px;
+            background: #ffd4bf;
+            border-bottom: 2px solid #222;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px #0002;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #292929;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            margin-top: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 9px;
+            background: coral;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff6347;
+        }
+
+        .error {
+            color: red;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 82%;
+                padding: 20px 12px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Product Review<br>Sentiment Analysis</h1>
+
+            <p>Enter your product review below to see if it's worth buying!</p>
+
+            <form action="/analyze" method="POST">
+                <textarea
+                    name="review"
+                    placeholder="Type your review here..."
+                    required>{{ request.form.get('review', '') }}</textarea>
+
+                {% if error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+
+                <button type="submit">Analyze</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
